@@ -1,138 +1,169 @@
 import 'package:flutter/material.dart';
 
 void main() {
-  runApp(const LikeMee());
+  runApp(const LayoutApp());
 }
 
-class LikeMee extends StatelessWidget {
-  const LikeMee({super.key});
+class LayoutApp extends StatelessWidget {
+  const LayoutApp({super.key});
 
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      title: "LIKEMEE",
-      theme: ThemeData(
-        primarySwatch: Colors.green,
-      ),
+      title: "Layout App",
+      theme: ThemeData(primaryColor: Colors.green),
       home: Scaffold(
-          backgroundColor: Colors.white,
           appBar: AppBar(
-            backgroundColor: Colors.white,
-            elevation: 0,
-            title: Row(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: const <Widget>[
-                Text(
-                  "LIKE",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w900,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 25),
-                ),
-                Text(
-                  "MEE",
-                  style: TextStyle(
-                      color: Colors.black,
-                      fontWeight: FontWeight.w300,
-                      fontStyle: FontStyle.italic,
-                      fontSize: 25),
-                ),
-              ],
-            ),
+            title: const Text("Layout App"),
           ),
-          body: const ActionButton()),
+          body: Container(
+            decoration: BoxDecoration(
+              color: Colors.black,
+              border: Border.all(width: 3.0, color: Colors.red),
+            ),
+            child: Card(
+                child: Row(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: <Widget>[
+                  Column(
+                    children: <Widget>[
+                      Container(
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                        ),
+                        //height: 300,
+                        width: 160,
+                        child: Column(
+                          children: <Widget>[
+                            Container(
+                              width: 160,
+                              margin: const EdgeInsets.all(7.0),
+                              padding: const EdgeInsets.all(3.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.black12, border: Border.all()),
+                              child: const Text(
+                                "Strawberry pavlova",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 14,
+                                  fontWeight: FontWeight.bold,
+                                ),
+                              ),
+                            ),
+                            Container(
+                              width: 160,
+                              margin: const EdgeInsets.all(7.0),
+                              padding: const EdgeInsets.all(3.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.black12, border: Border.all()),
+                              child: const Text(
+                                "Strawberry pavlova kewfjn oiwdf ieu vioweonosppnh ipwn pio vpwionovv 9oifn oiqwe",
+                                textAlign: TextAlign.center,
+                                style: TextStyle(
+                                  fontSize: 10,
+                                  fontWeight: FontWeight.normal,
+                                ),
+                              ),
+                            ),
+                            Container(
+                                width: 160,
+                                margin: const EdgeInsets.all(7.0),
+                                padding: const EdgeInsets.all(3.0),
+                                decoration: BoxDecoration(
+                                    color: Colors.black12,
+                                    border: Border.all()),
+                                child: Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: const <Widget>[
+                                    Icon(Icons.star,
+                                        size: 10, color: Colors.amber),
+                                    Icon(Icons.star,
+                                        size: 10, color: Colors.amber),
+                                    Icon(Icons.star,
+                                        size: 10, color: Colors.amber),
+                                    Icon(Icons.star,
+                                        size: 10, color: Colors.amber),
+                                    Icon(Icons.star,
+                                        size: 10, color: Colors.amber),
+                                    Text(
+                                      "170 Reviews",
+                                      style: TextStyle(fontSize: 8),
+                                    )
+                                  ],
+                                )),
+                            Container(
+                              width: 160,
+                              margin: const EdgeInsets.all(7.0),
+                              padding: const EdgeInsets.all(3.0),
+                              decoration: BoxDecoration(
+                                  color: Colors.black12, border: Border.all()),
+                              child: Row(
+                                mainAxisAlignment:
+                                    MainAxisAlignment.spaceBetween,
+                                children: <Widget>[
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const <Widget>[
+                                      Icon(Icons.book,
+                                          size: 15, color: Colors.amber),
+                                      Text(
+                                        "PREP",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "25 Min",
+                                        style: TextStyle(fontSize: 8),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const <Widget>[
+                                      Icon(Icons.book,
+                                          size: 15, color: Colors.amber),
+                                      Text(
+                                        "PREP",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "25 Min",
+                                        style: TextStyle(fontSize: 8),
+                                      ),
+                                    ],
+                                  ),
+                                  Column(
+                                    mainAxisAlignment: MainAxisAlignment.center,
+                                    children: const <Widget>[
+                                      Icon(Icons.book,
+                                          size: 15, color: Colors.amber),
+                                      Text(
+                                        "PREP",
+                                        style: TextStyle(fontSize: 10),
+                                      ),
+                                      Text(
+                                        "25 Min",
+                                        style: TextStyle(fontSize: 8),
+                                      ),
+                                    ],
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                    ],
+                  ),
+                  const Expanded(
+                    child: Image(
+                      //width: 200,
+                      image: NetworkImage(
+                          "https://s0.2mdn.net/simgad/16981468624255954099"),
+                    ),
+                  )
+                ])),
+          )),
     );
   }
 }
-
-class ActionButton extends StatefulWidget {
-  const ActionButton({super.key});
-
-  @override
-  State<ActionButton> createState() => _ActionButtonState();
-}
-
-class _ActionButtonState extends State<ActionButton> {
-  String wordChange = "NO MORE \nLONELY DAYS";
-String imageChange = "assets/images/kelvin.jpg";
-  @override
-  Widget build(BuildContext context) {
-    return Center(
-      child: Column(
-        mainAxisAlignment: MainAxisAlignment.center,
-        children: <Widget>[
-          Image(
-            image: AssetImage(imageChange),
-            width: 400,
-            height: 400,
-          ),
-          Text(
-            wordChange,
-            style: const TextStyle(
-              fontSize: 35,
-              fontWeight: FontWeight.w900,
-              fontStyle: FontStyle.italic,
-            ),
-            textAlign: TextAlign.center,
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 0.0, top: 80.0),
-            child: ElevatedButton(
-              onPressed: (() {
-                setState(() {
-                  wordChange = "WELCOME TO \n MY LIFE";
-                  imageChange = "assets/images/boy.jpg";
-  
-                });
-              }),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.black,
-                elevation: 0,
-                minimumSize: const Size(250, 60),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40.0)),
-                textStyle: const TextStyle(
-                    color: Colors.white,
-                    fontSize: 16,
-                    fontStyle: FontStyle.normal),
-              ),
-              child: const Text('get started'),
-            ),
-          ),
-          Padding(
-            padding: const EdgeInsets.only(bottom: 0.0, top: 0.0),
-            child: ElevatedButton(
-              onPressed: (() {
-                setState(() {
-                  wordChange = "HELLO \n MY LIFE";
-                  imageChange = "assets/images/girl.jpg";
-                });
-              }),
-              style: ElevatedButton.styleFrom(
-                backgroundColor: Colors.white,
-                elevation: 0,
-                minimumSize: const Size(250, 60),
-                shape: RoundedRectangleBorder(
-                    borderRadius: BorderRadius.circular(40.0)),
-                textStyle: const TextStyle(
-                    color: Colors.black,
-                    fontSize: 16,
-                    fontStyle: FontStyle.normal),
-              ),
-              child: const Text(
-                'login in with email',
-                style: TextStyle(color: Colors.black),
-              ),
-            ),
-          ),
-        ],
-      ),
-    );
-  }
-}
-
-
-
-
-
